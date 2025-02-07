@@ -1,0 +1,92 @@
+<h4 class="text-center mb-4">Add New Student</h4>
+    <form>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="first_name">First Name</label>
+                    <input
+                        type="text"
+                        id="first_name"
+                        class="form-control"
+                        placeholder="Enter first name"
+                        name="first_name"
+                        [(ngModel)]="obj.firstName"                        
+                        required
+                    />
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="last_name">Last Name</label>
+                    <input
+                        type="text"
+                        id="last_name"
+                        class="form-control"
+                        placeholder="Enter last name"
+                        name="last_name"
+                        [(ngModel)]="obj.lastName"                        
+                        required
+                    />
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="sem">Semester</label>
+                    <input
+                        type="text"
+                        id="sem"
+                        class="form-control"
+                        placeholder="Enter semester"
+                        name="sem"
+                        [(ngModel)]="obj.semester"                        
+                        required
+                    />
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="rno">Roll No</label>
+                    <input
+                        type="text"
+                        id="rno"
+                        class="form-control"
+                        placeholder="Enter rollNo"
+                        name="rno"
+                        [(ngModel)]="obj.rollNo"                        
+                        required
+                    />
+                </div>
+            </div>
+        </div>
+        <td><button value="Add" (click)="addStudent()" class="btn btn-primary">{{this.isEditable==-1?"Add":"Edit"}}</button></td>
+      </form>
+    <hr>
+
+    <h4 class="text-center mb-4">Student Details</h4>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">FirstName</th>
+      <th scope="col">LastName</th>
+      <th scope="col">Semester</th>
+      <th scope="col">Rollno</th>
+    </tr>
+  </thead>
+  
+<tbody>
+  <tr *ngFor="let temp of arr, let i=index">
+    <td>{{temp.firstName}}</td>
+    <td>{{temp.lastName}}</td>
+    <td>{{temp.semester}}</td>
+    <td>{{temp.rollNo}}</td>
+    <td>
+    <input type="button" value="Delete" class="btn btn-danger" (click)="deleteValue(i)"/> 
+    <input type="button" value="Edit" class="btn btn-warning" (click)="editValue(i)"/>
+    </td>
+  </tr>
+</tbody>
+
+</table> 

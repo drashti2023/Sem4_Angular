@@ -1,0 +1,24 @@
+<h2 class="text-center mb-4">Reactive Forms </h2>
+<form [formGroup]="userform">
+    Name<input type="text" placeholder="Enter Name" formControlName="name"/>
+    <br>
+    <span *ngIf="userform.get('name')?.invalid && userform.controls.name.touched">
+        <span *ngIf="userform.get('name')?.errors?.['required']">Please Enter Name!</span>
+        <span *ngIf="userform.get('name')?.errors?.['minlength']">Please Enter Valid Name (min 3 characters)!</span>
+    </span>    <br>
+    Email<input type="text" placeholder="Enter Email" formControlName="email"/>
+    <br>
+    <span *ngIf="userform.get('email')?.invalid && userform.controls.email.touched">
+        <span *ngIf="userform.get('email')?.errors?.['required']">Please Enter Email!</span>
+        <span *ngIf="userform.get('email')?.errors?.['email']">Please Enter Valid Email!</span>
+    </span>
+    <br>
+     Phone<input type="text" placeholder="Enter Contact Number" formControlName="number"/>
+    <br>
+    <span *ngIf="userform.get('number')?.invalid && userform.controls.number.touched">
+        <span *ngIf="userform.get('number')?.errors?.['required']">Please Enter Contact Number!</span>
+        <span *ngIf="userform.get('number')?.errors?.['pattern']">Please Enter Valid Contact Number!</span>
+    </span>
+    <br>
+    <button [disabled]="userform.invalid" (click)="save()">Submit</button>
+</form>

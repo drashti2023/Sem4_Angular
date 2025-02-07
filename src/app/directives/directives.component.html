@@ -1,0 +1,41 @@
+<h3 class="text-center mb-4">--Directives-- </h3>
+<!--ngIf-->
+<h1 *ngIf="name else elseBlock">Drashti</h1>
+
+<ng-template #elseBlock>
+    <h1>Vritti </h1>
+</ng-template>
+
+<button (click)="tgValue()">Toggle</button>
+<br>
+
+<button (click)="Start()">Start</button>
+<button (click)="stop()">Stop</button>
+<div [ngStyle]="obj">
+
+</div>
+    <br>
+
+<!-- ngSwitch -->
+<div>
+  
+    <input type="text" placeholder="Enter a day" [(ngModel)]="dayInput" >
+    
+    </div>
+    
+    <div [ngSwitch]="dayInput?.toLowerCase()">
+      <p *ngSwitchCase="'monday'">Monday</p>
+      <p *ngSwitchCase="'tuesday'"> Tuesday</p>
+      <p *ngSwitchCase="'wednesday'"> Wednesday</p>
+      <p *ngSwitchCase="'thursday'"> Thursday</p>
+      <p *ngSwitchCase="'friday'"> Friday</p>
+      <p *ngSwitchCase="'saturday'"> Saturday</p>
+      <p *ngSwitchCase="'sunday'"> Sunday</p>
+      <p *ngSwitchDefault>Please enter a valid day</p>
+    </div>
+  
+    
+<!-- ngClass -->
+    <h1 [ngClass]="'first second'">Drashti Rathod</h1>
+    <h1 [ngClass]="['second']">Vritti Surani</h1>
+    <h1 [ngClass]="classObj">Rajvi Sadatiya</h1>

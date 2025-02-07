@@ -1,0 +1,37 @@
+<h2 class="text-center mb-4">Reactive-Forms Using FormBuilder </h2>
+<form [formGroup]="userForm" class="user-form">
+    <div class="form-group">
+        <label>Enter UserName:</label>
+        <input type="text" formControlName="username" placeholder="Enter Username">
+        <span *ngIf="userForm.get('username')?.invalid && userForm.get('username')?.touched" class="error">Enter UserName</span>
+        <span *ngIf="userForm.get('username')?.hasError('minlength') && userForm.get('username')?.touched" class="error">UserName should contain more than 3 characters</span>
+    </div>
+
+    <div class="form-group">
+        <label>Enter Age:</label>
+        <input type="text" formControlName="age" placeholder="Enter Age">
+        <span *ngIf="userForm.get('age')?.invalid && userForm.get('age')?.touched" class="error">Enter valid age</span>
+    </div>
+
+    <div class="form-group">
+        <label>Enter SPI:</label>
+        <input type="text" formControlName="spi" placeholder="Enter SPI">
+        <span *ngIf="userForm.get('spi')?.hasError('required') && userForm.get('spi')?.touched" class="error">Enter SPI</span>
+        <span *ngIf="userForm.get('spi')?.hasError('max')" class="error">SPI must be 10 or less</span>
+        <span *ngIf="userForm.get('spi')?.hasError('pattern')" class="error">SPI must be a number with up to 4 decimal places</span>
+    </div>
+
+    <div class="form-group">
+        <label>Enter Contact Number:</label>
+        <input type="text" formControlName="contactno" placeholder="Enter Contact Number">
+        <span *ngIf="userForm.get('contactno')?.invalid && userForm.get('contactno')?.touched" class="error">Contact number must be 10 digits</span>
+    </div>
+
+    <div class="form-group">
+        <label>Enter Email:</label>
+        <input type="text" formControlName="email" placeholder="Enter Email">
+        <span *ngIf="userForm.get('email')?.invalid && userForm.get('email')?.touched" class="error">Enter valid email</span>
+    </div>
+
+    <button type="submit" [disabled]="userForm.invalid">Submit</button>
+</form>

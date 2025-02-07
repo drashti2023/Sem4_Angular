@@ -1,0 +1,16 @@
+<input type="text" [(ngModel)]="tempValue">
+<button type="button" class="btn btn-primary" (click)="addStudent($event)">{{isEditable==-1?"Add":"Edit"}}</button>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Name</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let temp of arr, let i=index">
+      <td>{{temp}}</td>
+      <input type="button" value="Delete" class="btn btn-danger" (click)="deleteValue(i)"/> 
+      <input type="button" value="Edit" class="btn btn-warning" (click)="editValue(i)"/>
+  </tbody>
+</table>

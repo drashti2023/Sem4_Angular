@@ -1,0 +1,25 @@
+<form [formGroup]="SignUpForm">
+    <h1>SignUp Page</h1>
+    <br>
+    <input type="text" formControlName="username" placeholder="Enter Username">
+    <span *ngIf="SignUpForm.get('username')?.invalid && SignUpForm.get('username')?.touched" style="color: red;">Enter UserName</span>
+    <span *ngIf="SignUpForm.get('username')?.hasError('minlength') && SignUpForm.get('username')?.touched" style="color: red;"> UserName should contain more than 3 characters</span>
+
+    <br>
+    <input type="password" formControlName="password" placeholder="Enter Password">
+    <span *ngIf="SignUpForm.get('pattern')?.invalid " style="color: red;">Enter valid password</span>
+
+   <br>
+    <input type="text" formControlName="email" placeholder="Enter Email">
+    <span *ngIf="SignUpForm.get('required')?.invalid && SignUpForm.get('email')?.touched" style="color: red;">Enter email</span>
+    <span *ngIf="SignUpForm.get('email')?.invalid && SignUpForm.get('email')?.touched" style="color: red;">Enter valid email</span>
+
+    <br>
+    <input type="text" formControlName="contactno" placeholder="Enter Contact Number">
+    <span *ngIf="SignUpForm.get('required')?.invalid && SignUpForm.get('contactno')?.touched" style="color: red;">Enter contact number</span>
+    <span *ngIf="SignUpForm.get('contactno')?.invalid && SignUpForm.get('contactno')?.touched" style="color: red;">Contact number must be 10 digits</span>
+
+    <button type="SignUp" (click)="signUpUser(SignUpForm.value)" >SignUp</button>
+
+    
+</form>

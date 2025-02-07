@@ -1,0 +1,45 @@
+<h2 class="text-center mb-4">Template Driven Forms </h2>
+<form #userform="ngForm" (ngSubmit)="onSubmit(userform)">
+    <div class="mb-3">
+        <label for="Name" class="form-label">Name</label>
+        <input type="text" class="form-control" [(ngModel)]="User.Name" #Name="ngModel" required name="Name" minlength="3" id="Name" placeholder="Enter Full Name">
+        <div style="color: red;" *ngIf="Name.invalid && Name.touched">Please enter valid name.</div>
+        <div *ngIf="Name.errors?.['minlength'] && Name.touched" style="color:red"> Name should contain minimum 3 letters </div>
+    </div>
+
+    <div class="mb-3">
+        <label for="Email" class="form-label">Email</label>
+        <input type="email" [(ngModel)]="User.Email" #Email="ngModel" required name="Email" class="form-control" id="Email" placeholder="Enter Email">
+        <div style="color: red;" *ngIf="Email.invalid && Email.touched">Please enter a valid email address.</div>
+    </div>
+
+    <div class="mb-3">
+        <label for="BirthDate" class="form-label">BirthDate</label>
+        <input type="date" class="form-control" [(ngModel)]="User.BirthDate" #BirthDate="ngModel" required name="BirthDate" id="BirthDate" placeholder="Enter Birth Date">
+        <div style="color: red;" *ngIf="BirthDate.invalid && BirthDate.touched">Please enter a valid birth date.</div>
+    </div>
+
+    <div class="mb-3">
+        <label for="SPI" class="form-label">SPI</label>
+        <input type="text" class="form-control" [(ngModel)]="User.SPI" #SPI="ngModel" required pattern="^(10|[1-9](?:\.\d{1,2})?)$" name="SPI" id="SPI" placeholder="Enter SPI">
+        <div style="color: red;" *ngIf="SPI.invalid && SPI.touched">Please enter a valid SPI.</div>
+    </div>
+
+    <div class="mb-3">
+        <label for="Contact" class="form-label">Contact</label>
+        <input type="text" class="form-control" [(ngModel)]="User.Contact" #Contact="ngModel" required pattern="^[0-9]{10}$" name="Contact" id="Contact" placeholder="Enter Contact Number">
+        <div style="color: red;" *ngIf="Contact.invalid && Contact.touched">Please enter a valid 10-digit contact number.</div>
+    </div>
+
+    <div class="mb-3 form-check">
+        <input type="checkbox" class="form-check-input" [(ngModel)]="User.Confirmed" #CheckBox="ngModel" required name="Confirmed" id="CheckBox">
+        <label class="form-check-label" for="CheckBox">Confirm Details</label>
+        <div style="color: red;" *ngIf="CheckBox.invalid && CheckBox.touched">Please confirm your details.</div>
+    </div>
+
+    <button type="submit" [disabled]="userform.invalid" class="btn btn-primary">Submit</button>
+</form>
+
+<pre style="text-align: center;">
+    {{User | json}}
+</pre>

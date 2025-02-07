@@ -1,0 +1,20 @@
+<form [formGroup]="login">
+    <div class="login">
+        <h2>Login</h2>
+        <input type="text" formControlName="UserName" placeholder="Enter Username">
+        <br>
+        <span *ngIf="login.get('UserName')?.invalid && login.get('UserName')?.touched">
+            <span *ngIf="login.get('UserName')?.errors?.['required']">Please Enter Name!</span>
+            <span *ngIf="login.get('UserName')?.errors?.['minlength']">Please Enter Valid Name (min 3 characters)!</span>
+        </span>
+
+        <input type="password" formControlName="Password" placeholder="Enter Password">
+        <br>
+        <span *ngIf="login.get('Password')?.invalid && login.get('Password')?.touched">
+            <span *ngIf="login.get('Password')?.errors?.['required']">Please Enter Password!</span>
+            <span *ngIf="login.get('Password')?.errors?.['pattern']">Please Enter Valid Password!</span>
+        </span>
+
+        <button type="submit" (click)="loginuser(login.value)">Login </button>
+    </div>
+</form>
