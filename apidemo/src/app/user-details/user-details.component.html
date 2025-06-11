@@ -1,0 +1,14 @@
+<div class="container">
+    <div class="row">
+      <div class="card" style="width: 18rem;">
+        <div class="card-body">
+          <h5 class="card-title">{{ userDetails.Username }}</h5>
+          <p class="card-text">Email: {{ userDetails.email }}</p>
+          <p class="card-text">Image: {{ userDetails.Image }}</p>
+
+          <button class="btn btn-secondary" (click)="goBack()">Back</button>
+          <button class="btn btn-danger" (click)="deleteUser()">Delete</button>  
+         </div>
+      </div>
+    </div>
+  </div>

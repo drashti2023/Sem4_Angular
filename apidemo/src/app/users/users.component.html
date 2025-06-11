@@ -1,0 +1,18 @@
+<h1> API Demo</h1>
+<div class="container">
+  <button class="btn btn-primary" routerLink="/add">Add User</button>
+
+  <div class="row">
+  <div class="card" style="width: 18rem;" *ngFor="let temp of arr">
+    <img src="{{temp.Image}} " class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">{{temp.Username}}</h5>
+      <p class="card-text">{{temp.id}}  || Some quick example text to build on the card title and make up the bulk of the card's content.</p> 
+      <button class="btn btn-primary" (click)="moreDetails(temp.id)">More Details</button>
+      <button class="btn btn-danger" (click)="deleteUsers(temp.id)">Delete</button>
+      <button class="btn btn-warning" routerLink="/edit/{{temp.id}}">Edit</button>     
+
+    </div>
+  </div>
+  </div>
+  </div>
