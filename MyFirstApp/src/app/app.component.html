@@ -1,0 +1,43 @@
+<h1>Hello World</h1>
+<router-outlet></router-outlet>
+<app-home></app-home>
+
+<p>{{title}}</p>
+<p>{{amount}}</p>
+<p>Today'sDate:{{TodaysDate|date:'fullDate'}}</p>
+<p>formattedAmount:{{amount|currency:'INR'}}</p>
+<p>Upperacse:{{name|uppercase}}</p>
+<p>Lowercase:{{name|lowercase}}</p>
+<p>Titlecase:{{name|titlecase}}</p>
+<p>Decimal:{{amount|number:'8.0-2'}}</p>
+<p>Decimal:{{amount|number:'1.0-8'}}</p>
+<p>percent:{{0.78|percent}}</p>
+<p>json:{{stuName|json}}</p>
+<p>Slice:{{name|slice:1:7}}</p> 
+<hr/>
+<input type="text" (input)="dispalyDetail($event)">Type Here
+<br/>
+{{temp}}
+
+<button (click)="print()">Click Here</button>
+<hr/>
+
+<h2> key-events </h2>
+<div>
+    <p><input (keydown)="onKeyDown($event)" placeholder="Type something and press a key (keydown)">{{keyDown}}</p>
+    <p><input (keyup)="onKeyUp($event)" placeholder="Type something and release a key (keyup)">{{keyUp}}</p>
+    <p><input (keypress)="onKeyPress($event)" placeholder="Press a key (keypress)">{{keyPress}}</p>
+    
+  </div>
+  
+<hr/>
+ <h2> mouse-events </h2>
+<div>
+    <button (click)="onClick()">Click Me!</button>
+    <button (dblclick)="onDoubleClick()">Double Click Me!</button>
+    <div (mouseover)="onMouseOver()" (mouseout)="onMouseOut()">
+      Hover over me!
+    </div>
+    <p>{{message}}</p>
+  </div>
+  
