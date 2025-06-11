@@ -1,0 +1,21 @@
+<div class="container">
+  <div>
+    <app-header></app-header>
+  </div>
+
+  <div class="container-fluid  border border-primary">
+    <div class="row">
+      <div class="col-md-3">
+          <app-leftcolumn/>    
+      </div>
+      <div class="col-md-9 border border-primary">
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+  </div>
+
+  <div class=" border border-primary">
+    <app-footer></app-footer>
+  </div>
+
+</div>
